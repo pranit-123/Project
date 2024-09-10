@@ -9,7 +9,7 @@
  <link href="<c:url value='/resources/CSS/sendemail.css' />" rel="stylesheet">
 </head>
 <body>
-	<form action="/sendEmail" method="post">
+	<form action="sendEmail" method="post">
 		<h2>Send Email</h2>
 		<label for="to">To:</label> <input type="email" id="to" name="to"
 			placeholder="e.g., email1@example.com, email2@example.com" required>
@@ -20,5 +20,6 @@
 
 		<input type="submit" value="Send Email">
 	</form>
+	   
 </body>
 </html>

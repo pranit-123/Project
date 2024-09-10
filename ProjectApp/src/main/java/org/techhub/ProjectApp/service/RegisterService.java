@@ -26,5 +26,6 @@ public interface RegisterService {
 	public Register getUserProfileByEmail(Register register);
 	
 	public List<Register> getAllUsers();
+	
   
 }
