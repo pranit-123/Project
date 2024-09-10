@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../images/img8.jpg");  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.8); /* Slight transparency for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in; /* Apply fade-in animation */
+}
+
+/* Styling form labels */
+.login-container label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Styling input fields */
+.login-container input[type="text"], .login-container input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for input fields */
+.login-container input[type="text"]:hover, .login-container input[type="password"]:hover {
+    border-color: #007bff;
+}
+
+/* Focus effect for input fields */
+.login-container input[type="text"]:focus, .login-container input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Styling the submit button */
+.login-container input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: calc(100%);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: calc(100%-22);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block; /* Make it a block element */
+    margin-top: 10px; /* Add some margin top */
+}
+
+.register:hover {
+    background-color: #0056b3; /* Add hover effect */
+}
+
+.register:active {
+    transform: scale(0.98); /* Add active effect */
+}
+/* .register {
+	background-color: #007bff;
+    color: white;
+    border: none;
+    width: calc(100%);
+    text-decoration:none;
+    text-align:center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+} */
+
+/* Hover and active effect for the submit button */
+.login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-container input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Styling the message */
+.message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+

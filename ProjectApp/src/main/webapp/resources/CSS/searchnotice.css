@@ -1,0 +1,55 @@
+/* Search input style */
+#searchInput {
+      width: 80%; /* Adjust width to leave space for the select dropdown */
+      padding: 10px; /* Padding for better spacing */
+      margin-bottom: 20px; /* Margin below the search bar */
+      border: 2px solid black; /* Border color matching the heading */
+      border-radius: 25px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+      font-size: 16px; /* Increase font size */
+      border: 2px solid #007bff;
+    }
+    .form-control {
+    margin: 10px;
+   
+    }
+    /* Container style */
+    .container {
+    
+      max-width: 100%; /* Make container full width */
+      animation: fadeIn 1s ease-in; /* Apply fade-in animation */
+    }
+
+    /* Event List heading style */
+    .container h2 {
+      background-color: #008080; /* Teal color */
+      color: white; /* White text color for contrast */
+      padding: 10px 15px; /* Add padding for better spacing */
+      margin-bottom: 20px; /* Margin below the heading */
+      text-align: center; /* Center-align the heading text */
+      width: 100%; /* Full width of the container */
+      border-radius: 5px; /* Rounded corners */
+      font-size: 24px; /* Increase font size */
+    }
+
+    /* Filter Dropdown style */
+    #searchFilter {
+      border: 2px solid #007bff; /* Border color matching the heading */
+      border-radius: 25px; /* Rounded corners */
+      font-size: 16px; /* Increase font size */
+    }
+    .text-secondary {
+  
+      display: none; 
+      text-align: center; 
+      margin-top: 50px;
+    }
+    /* Fade-in animation for the container */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }

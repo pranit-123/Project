@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* Remove any unnecessary height settings */
+body, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container style */
+.container {
+    max-width: 100%;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Event List heading style */
+.container h2 {
+    background-color: #008080;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+/* Table style */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in;
+}
+
+/* Table header style */
+.thead-dark th {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+    .container h2 {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

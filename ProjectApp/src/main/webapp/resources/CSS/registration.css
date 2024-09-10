@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* General body styling */
+body {
+	font-family: Arial, sans-serif;
+	background-image: url("../images/img8.jpg");  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-color: #f4f4f4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.form-container {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 500px;
+	animation: fadeIn 1s ease-in; /* Apply fade-in animation */
+}
+
+/* Styling form labels */
+.registration-form label {
+	font-size: 1rem;
+	margin-bottom: 5px;
+	display: block;
+}
+
+/* Styling input fields */
+.registration-form input[type="text"], .registration-form input[type="email"],
+	.registration-form input[type="password"], .registration-form select {
+	width: calc(100% - 22px);
+	padding: 10px;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.registration-form select {
+	width: 100%;
+}
+/* Hover effect for input fields */
+.registration-form input[type="text"]:hover, .registration-form input[type="email"]:hover,
+	.registration-form input[type="password"]:hover, .registration-form select:hover
+{
+	border-color: #007bff;
+}
+
+/* Focus effect for input fields */
+.registration-form input[type="text"]:focus, .registration-form input[type="email"]:focus,
+	.registration-form input[type="password"]:focus, .registration-form select:focus
+	{
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+	outline: none;
+}
+
+/* Styling the submit button */
+.registration-form input[type="submit"] {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	width: calc(100%);
+	padding: 10px 20px;
+	font-size: 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover and active effect for the submit button */
+.registration-form input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+.registration-form input[type="submit"]:active {
+	transform: scale(0.98);
+}
+
+/* Styling the messages */
+.messages {
+	margin-top: 10px;
+	font-size: 0.9rem;
+	color: #555;
+}
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
