@@ -33,6 +33,7 @@ public class HomeController {
     @RequestMapping(value = "/register")
     public String register(Register register, Map<String, Object> map) {
         boolean isSuccess = regService.isAddRegister(register);
+        System.out.println(isSuccess);
         
         if (isSuccess) {
         	
@@ -52,18 +53,21 @@ public class HomeController {
     }
     
    @RequestMapping(value = "/dash")
-   public String Dashboard(Login model, Map<String, Object> map, HttpSession session) {
+   public String Dashboard(Login model, Map<String, Object> map, HttpSession session,Register register) {
       boolean isValid = regService.isValidateUser(model);
       String email = model.getEmail();
       String pass = model.getPassword();
       if(email.equals("admin@123456") && pass.equals("admin@123456")) 
        {
+    	  session.setAttribute("role","all");
       	   return "admindashboard";
         }
         else if (isValid) 
         {
+        	String role=regService.getRoleUsingEmailAndPassword(model.getEmail(),model.getPassword());
         	session.setAttribute("email",model.getEmail());
         	session.setAttribute("password", model.getPassword());
+        	session.setAttribute("role",role);
             return "userdashboard";
         } 
        else {

@@ -1,10 +1,10 @@
 package org.techhub.ProjectApp.controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.techhub.ProjectApp.model.AddNotice;
 import org.techhub.ProjectApp.model.Register;
-import org.techhub.ProjectApp.repository.RegisterRepo;
 import org.techhub.ProjectApp.service.RegisterService;
 
 @Controller
@@ -48,20 +47,19 @@ public class AddNoticeController {
 	}
 	
 	@RequestMapping("/userviewnote")
-	public String userviewnote(Model map, Map<String, List<AddNotice>> m,Register register, HttpSession session) {
-		List<AddNotice> list = regService.getAllNotices();
-		/*
-        String role = "teacher" ; role ="all";
-		if(role.equalsIgnoreCase("student") && role.equalsIgnoreCase("all")) {
-			list = regService.getAllNotices();
-		}
-		else if(role.equalsIgnoreCase("teacher") && role.equalsIgnoreCase("all")) {
-			list = regService.getAllNotices();
-		}
+	public String userviewnote(HttpServletRequest request,Model map, Map<String, List<AddNotice>> m,Register register) {
+		
+		HttpSession session=request.getSession(false);
+	 
+		String role = (String) session.getAttribute("role");
+		System.out.println(role);
+		List<AddNotice> list=null;
+		if( session.getAttribute("role")!=null)
+			list = regService.getAllNoticesRoleWise(role);
 		else {
-			list = regService.getAllNotices();
+			System.out.println("role is empty...........");
 		}
-		*/
+		
 		m.put("list", list);
 		return "userviewnotices";
 

@@ -72,14 +72,32 @@ body {
 	cursor: pointer;
 	transition: background-color 0.3s ease, transform 0.3s ease;
 }
+/* Add the following code to your existing CSS file */
 
-/* Hover and active effect for the submit button */
-.registration-form input[type="submit"]:hover {
-	background-color: #0056b3;
+.Login {
+    background-color: #007bff;
+    border: none;
+    width: calc(100%-22);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block; /* Make it a block element */
+    margin-top: 10px; /* Add some margin top */
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.Login:hover {
+    background-color: #0056b3; /* Add hover effect */
 }
 
-.registration-form input[type="submit"]:active {
-	transform: scale(0.98);
+.Login:active {
+    transform: scale(0.98); /* Add active effect */
 }
 
 /* Styling the messages */

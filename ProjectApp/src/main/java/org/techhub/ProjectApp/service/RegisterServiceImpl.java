@@ -3,7 +3,6 @@ package org.techhub.ProjectApp.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.techhub.ProjectApp.model.AddNotice;
 import org.techhub.ProjectApp.model.Login;
@@ -64,5 +63,17 @@ public class RegisterServiceImpl implements RegisterService {
 	public List<Register> getAllUsers() {
 	
 		return regRepo.getAllUsers();
+	}
+
+	@Override
+	public List<AddNotice> getAllNoticesRoleWise(String role) {
+		
+		return regRepo.getAllNoticesRoleWise(role);
+	}
+
+	@Override
+	public String getRoleUsingEmailAndPassword(String email, String password) {
+	
+		return regRepo.getRoleUsingEmailAndPassword(email, password);
 	}
 }

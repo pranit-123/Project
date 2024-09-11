@@ -15,7 +15,11 @@ public interface RegisterRepo {
 	
 	public boolean isAddNotice(AddNotice notice);
 	
+	public String getRoleUsingEmailAndPassword(String email,String password);
+	
 	public List<AddNotice> getAllNotices();
+	
+	public List<AddNotice> getAllNoticesRoleWise(String role);
 
 	public boolean DeleteEmployeeByid(int id);
 	

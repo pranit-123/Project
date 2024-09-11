@@ -29,11 +29,11 @@ public class RegisterRepoImpl implements RegisterRepo {
 
                 @Override
                 public void setValues(PreparedStatement ps) throws SQLException {
-                    ps.setString(1, register.getName());
-                    ps.setString(2, register.getEmail());
-                    ps.setString(3, register.getPassword());
-                    ps.setString(4, register.getContact());
-                    ps.setString(5, register.getRole());
+                    ps.setString(1, register.getName().trim());
+                    ps.setString(2, register.getEmail().trim());
+                    ps.setString(3, register.getPassword().trim());
+                    ps.setString(4, register.getContact().trim());
+                    ps.setString(5, register.getRole().trim());
                 }
             });
         } catch (DataAccessException e) {
@@ -50,15 +50,15 @@ public class RegisterRepoImpl implements RegisterRepo {
                     new PreparedStatementSetter() {
                         @Override
                         public void setValues(PreparedStatement ps) throws SQLException {
-                            ps.setString(1, model.getEmail());
-                            ps.setString(2, model.getPassword());
+                            ps.setString(1, model.getEmail().trim());
+                            ps.setString(2, model.getPassword().trim());
                         }
                     }, new RowMapper<Login>() {
                         @Override
                         public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
                             Login l = new Login();
-                            l.setEmail(rs.getString("email"));
-                            l.setPassword(rs.getString("password"));
+                            l.setEmail(rs.getString("email").trim());
+                            l.setPassword(rs.getString("password").trim());
                             return l;
                         }
                     });
@@ -74,11 +74,11 @@ public class RegisterRepoImpl implements RegisterRepo {
 
             @Override
             public void setValues(PreparedStatement ps) throws SQLException {
-                ps.setString(1, notice.getNname());
-                ps.setString(2, notice.getNdescription());
-                ps.setString(3, notice.getNdate());
-                ps.setString(4, notice.getLocation());
-                ps.setString(5, notice.getOrganizeFor());
+                ps.setString(1, notice.getNname().trim());
+                ps.setString(2, notice.getNdescription().trim());
+                ps.setString(3, notice.getNdate().trim());
+                ps.setString(4, notice.getLocation().trim());
+                ps.setString(5, notice.getOrganizeFor().trim());
             }
         });
         return add > 0;
@@ -86,7 +86,7 @@ public class RegisterRepoImpl implements RegisterRepo {
 
     @Override
     public List<AddNotice> getAllNotices() {
-        return template.query("select * from notices", new RowMapper<AddNotice>() {
+        return template.query("select * from notices",new RowMapper<AddNotice>() {
 
             @Override
             public AddNotice mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -115,8 +115,8 @@ public class RegisterRepoImpl implements RegisterRepo {
 
             @Override
             public void setValues(PreparedStatement ps) throws SQLException {
-                ps.setString(1, notice.getNname());
-                ps.setString(2, notice.getNdescription());
+                ps.setString(1, notice.getNname().trim());
+                ps.setString(2, notice.getNdescription().trim());
                 ps.setString(3, notice.getNdate());
                 ps.setString(4, notice.getLocation());
                 ps.setString(5, notice.getOrganizeFor());
@@ -180,5 +180,55 @@ public class RegisterRepoImpl implements RegisterRepo {
 			}
 
 		});
+	}
+
+	@Override
+	public List<AddNotice> getAllNoticesRoleWise(String role) {
+		return template.query("select * from notices where organizeFor=? or organizeFor=?",new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, "all");
+				ps.setString(2, role);
+				
+			}
+			
+		},new RowMapper<AddNotice>() {
+
+            @Override
+            public AddNotice mapRow(ResultSet rs, int rowNum) throws SQLException {
+                AddNotice an = new AddNotice();
+                an.setNid(rs.getInt(1));
+                an.setNname(rs.getString(2));
+                an.setNdescription(rs.getString(3));
+                an.setNdate(rs.getString(4));
+                an.setLocation(rs.getString(5));
+                an.setOrganizeFor(rs.getString(6));
+                return an;
+            }
+        });
+	}
+
+	@Override
+	public String getRoleUsingEmailAndPassword(String email, String password) {
+		List<Register> modellist=template.query("select role from register where email=? and password=?",new PreparedStatementSetter(){
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+			ps.setString(1,email);
+			ps.setString(2,password);
+			
+			}
+			
+		},new RowMapper<Register>() {
+
+					@Override
+					public Register mapRow(ResultSet rs, int rowNum) throws SQLException {
+						Register r=new Register();
+						r.setRole(rs.getString(1));
+						return r;
+					}
+		});
+		return modellist.get(0).getRole();
 	}
 }
