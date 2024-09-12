@@ -76,4 +76,10 @@ public class RegisterServiceImpl implements RegisterService {
 	
 		return regRepo.getRoleUsingEmailAndPassword(email, password);
 	}
+
+	@Override
+	public List<AddNotice> searchAllNoticesRoleWise(String role) {
+
+		return regRepo.searchAllNoticesRoleWise(role);
+	}
 }

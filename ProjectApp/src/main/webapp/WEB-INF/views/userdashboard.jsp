@@ -17,7 +17,7 @@
 
     <!-- Header with Navigation Bar -->
     <header class="header">
-        <div class="logo">Notice Board</div>
+        <div class="logo">Digital Notice Board</div>
         <nav class="navbar">
             <ul>
                 <li><a href="userviewnote"><i class="fas fa-eye"></i> View All Notices</a></li>

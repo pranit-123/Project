@@ -22,7 +22,7 @@
                 <tr>
                     <th>NID</th>
                     <th>NName</th>
-                    <th>NDESCRIPTION</th>
+                    <th>NDESCRIPTION</th>  
                     <th>NDate</th>
                     <th>LOCATION</th>
                     <th>ORGANIZEFOR</th>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Online Notice Board</title>
+<title>Notice Board </title>
 <link href="<c:url value='/resources/CSS/index.css' />" rel="stylesheet">
 <!-- Bootstrap CSS for carousel -->
 <link
@@ -15,8 +15,9 @@
 </head>
 <body>
 	<header class="header">
-		<marquee style="margin-right: 100px;"><div class="logo" style="font-size: 24px; font-weight: bold; color: #333;">Online Notice Board</div></marquee>
-		
+    <marquee direction="alternate" behavior="alternate" style="margin-right: 20px;">
+          <div class="logo" style="font-size: 24px; font-weight: bold; color: #333;">Welcome to Digital Notice Board </div>
+    </marquee>		
 		<nav class="navbar">
 			<ul>
 				<li><a href="#home">Home</a></li>

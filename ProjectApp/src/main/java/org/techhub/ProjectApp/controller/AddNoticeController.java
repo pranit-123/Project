@@ -93,15 +93,31 @@ public class AddNoticeController {
 	}
 
 	@RequestMapping("/searchnote")
-	public String SearchNotice(Model map, Map m) {
+	public String SearchNotice(HttpServletRequest request,Model map, Map<String, List<AddNotice>> m,Register register) {
+		HttpSession session=request.getSession(false);
+		String role = (String) session.getAttribute("role");
+		System.out.println(role+"==================");
+		List<AddNotice> list=null;
+		if( session.getAttribute("role")!=null) {
+			list = regService.searchAllNoticesRoleWise(role);
+		}
+		/*
+		 * List<AddNotice> list = regService.getAllNotices(); if(list!=null) {
+		 * map.addAttribute("list", list); return "searchnotice"; }else {
+		 * m.put("message", "data Not Found..."); }
+		 */
+		else {
+			list = regService.searchAllNoticesRoleWise(role);
+		}
+		 m.put("list", list);
+         return "searchnotice";
+	}
+	@RequestMapping("/searchnotes")
+	public String SeachAllNotices(Model map, Map<String, List<AddNotice>> m) {
 		List<AddNotice> list = regService.getAllNotices();
-           if(list!=null) {
-		   map.addAttribute("list", list);
-		   return "searchnotice";
-           }else {
-        	   m.put("message", "data Not Found...");
-           }
-           return "searchnotice";
+
+		m.put("list", list);
+		return "searchnotice";
 	}
 	
 	 @RequestMapping("/adminLog")

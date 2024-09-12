@@ -231,4 +231,31 @@ public class RegisterRepoImpl implements RegisterRepo {
 		});
 		return modellist.get(0).getRole();
 	}
+
+	@Override
+	public List<AddNotice> searchAllNoticesRoleWise(String role) {
+		return template.query("select * from notices where organizeFor=? or organizeFor=?",new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, "all");
+				ps.setString(2, role);
+				
+			}
+			
+		},new RowMapper<AddNotice>() {
+
+            @Override
+            public AddNotice mapRow(ResultSet rs, int rowNum) throws SQLException {
+                AddNotice an = new AddNotice();
+                an.setNid(rs.getInt(1));
+                an.setNname(rs.getString(2));
+                an.setNdescription(rs.getString(3));
+                an.setNdate(rs.getString(4));
+                an.setLocation(rs.getString(5));
+                an.setOrganizeFor(rs.getString(6));
+                return an;
+            }
+        });
+	}
 }

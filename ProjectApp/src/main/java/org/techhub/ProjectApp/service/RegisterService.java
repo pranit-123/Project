@@ -31,5 +31,6 @@ public interface RegisterService {
 	
 	public List<Register> getAllUsers();
 	
+	public List<AddNotice> searchAllNoticesRoleWise(String role);
   
 }
