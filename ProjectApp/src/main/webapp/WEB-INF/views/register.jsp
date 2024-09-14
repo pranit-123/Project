@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <title>Registration Page</title>
 <link href="<c:url value='/resources/CSS/registration.css' />" rel="stylesheet">
-<script src="<c:url value='/resources/JS/validateuser.js' />"></script> 
+<script src="<c:url value='/resources/JS/validateuser.js' />"></script>    
 
 </head>
 <body>
   <div class="form-container">
-    <form action="register" method="post" class="registration-form" oninput="validateForm()">
+    <form action="register" method="post" class="registration-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Enter Name" required="required"><br>
       <div id="nameError" style="color:red; font-size:0.9rem;"></div><br>
@@ -35,11 +35,10 @@
         <option value="" disabled selected>Select your role</option>
         <option value="student">Student</option>
         <option value="teacher">Teacher</option>
-      </select><br><br>
+      </select><br><br> 
 
       <input type="submit" name="s" value="Sign Up"><br><br>
-    <!--   <div class="Login"><a href="log" >Login</a></div><br> -->
-      
+
       <div class="message" style="color: red; text-align: center; margin-top: 5px;">
         ${msg}
         ${msgforreg}

@@ -21,6 +21,7 @@
         <h2 class="mb-4 text-center">List of All Notices</h2>
 
         <div id="noticeContainer" class="row">
+           
             <!-- Notice content dynamically added by pagination -->
             <c:forEach var="n" items="${list}" varStatus="status">
                 <div class="col-md-6 notice-item">
@@ -35,7 +36,7 @@
                             <br><br>
                             <!-- Collapse for description -->
                             <button class="btn-toggle" type="button" data-toggle="collapse" data-target="#desc-${n.getNid()}" aria-expanded="false" aria-controls="desc-${n.getNid()}">
-                                Show Description
+                                View Description
                             </button>
                             <div class="collapse mt-2" id="desc-${n.getNid()}">
                                 <strong>Description:</strong> ${n.getNdescription()}

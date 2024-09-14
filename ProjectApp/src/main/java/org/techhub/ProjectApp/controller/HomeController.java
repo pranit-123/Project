@@ -91,5 +91,15 @@ public class HomeController {
     	return "contact";
     }
     
+    @RequestMapping("/logout")
+    public String LogOutSession(HttpSession session, Map map , Login login) {
+    	if(session.getAttribute("user") != null) {
+    		session.removeAttribute("user");
+    	}
+		return "index"; 	
+    }
+    
+    
+    
 }
 

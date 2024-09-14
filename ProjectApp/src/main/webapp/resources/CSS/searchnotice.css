@@ -22,7 +22,7 @@
 
     /* Event List heading style */
     .container h2 {
-      background-color: #008080; /* Teal color */
+      background-color: #007bff; /* Teal color */
       color: white; /* White text color for contrast */
       padding: 10px 15px; /* Add padding for better spacing */
       margin-bottom: 20px; /* Margin below the heading */
@@ -30,6 +30,11 @@
       width: 100%; /* Full width of the container */
       border-radius: 5px; /* Rounded corners */
       font-size: 24px; /* Increase font size */
+      position: sticky; /* Sticky position */
+	  top: 0; /* Stick to the top */
+	  z-index: 100; /* Ensure it stays on top of other elements */
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow when sticky */
+	
     }
 
     /* Filter Dropdown style */

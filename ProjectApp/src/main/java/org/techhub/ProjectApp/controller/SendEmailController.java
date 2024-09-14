@@ -50,7 +50,7 @@ public class SendEmailController {
         
         try {
             mailSender.send(email);
-            map.put("m", "EMail Suceessfully send");
+            map.put("m", "Email send Suceessfully...! ");
             
         } catch (Exception e) {
             e.printStackTrace(); // Print stack trace for debugging
