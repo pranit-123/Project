@@ -31,6 +31,9 @@
             </div>
             <div class="profile-actions">
                 <button class="btn btn-primary">Edit Profile</button>
+                <a href="indpage">
+                   <button class="btn bg-danger">Log Out</button>
+                </a>
             </div>
         </div>
     </div>

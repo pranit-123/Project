@@ -44,6 +44,8 @@
       text-align: center; 
       margin-top: 50px;
     }
+    
+    
     /* Fade-in animation for the container */
     @keyframes fadeIn {
       from {

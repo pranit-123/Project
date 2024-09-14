@@ -24,7 +24,7 @@
                     <th>Rid</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Password</th>
+                   <!--  <th>Password</th> -->
                     <th>Contact</th>
                     <th>Role</th>
                 </tr>
@@ -36,7 +36,7 @@
                         <td>${n.getRid()}</td>
                         <td>${n.getName()}</td>
                         <td>${n.getEmail()}</td>
-                        <td>${n.getPassword()}</td>
+                        <%-- <td>${n.getPassword()}</td> --%>
                         <td>${n.getContact()}</td>
                         <td>${n.getRole()}</td>
                     </tr>

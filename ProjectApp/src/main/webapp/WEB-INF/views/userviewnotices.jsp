@@ -3,6 +3,70 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %> 
 
+<!DOCTYPE html>                           <!-- userviewnotices.jsp means viewusernotices.jsp -->                                
+<html lang="en">                          <!-- viewnotices.css means userviewnotices.css -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Event</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="<c:url value='/resources/CSS/viewnotices.css' />" rel="stylesheet" type="text/css">
+     <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/pegiforviewnote.js' />"></script> 
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4 text-center">List of All Notices</h2>
+
+        <div id="noticeContainer" class="row">
+            <!-- Notice content dynamically added by pagination -->
+            <c:forEach var="n" items="${list}" varStatus="status">
+                <div class="col-md-6 notice-item">
+                    <div class="notice-block">
+                        <div class="notice-heading">
+                            ${n.getNname()}
+                        </div>
+                        <div class="notice-details">
+                            <strong>Date:</strong> ${n.getNdate()} <br>
+                            <strong>Location:</strong> ${n.getLocation()} <br>
+                            <strong>Organized For:</strong> ${n.getOrganizeFor()}
+                            <br><br>
+                            <!-- Collapse for description -->
+                            <button class="btn-toggle" type="button" data-toggle="collapse" data-target="#desc-${n.getNid()}" aria-expanded="false" aria-controls="desc-${n.getNid()}">
+                                Show Description
+                            </button>
+                            <div class="collapse mt-2" id="desc-${n.getNid()}">
+                                <strong>Description:</strong> ${n.getNdescription()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+
+        <!-- Pagination Controls -->
+        <nav>
+            <ul id="paginationControls" class="pagination"></ul>
+        </nav>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<%-- 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,3 +175,4 @@
     </script>
 </body>
 </html>
+ --%>

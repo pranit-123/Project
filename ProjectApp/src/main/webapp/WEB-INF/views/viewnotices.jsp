@@ -4,49 +4,52 @@
 <%@ page isELIgnored="false" %> 
 
 <!DOCTYPE html>
-<html>
-<head>
+<html>                                 <!-- viewnotices.jsp means viewadminnotices.css  -->
+<head>                                 <!-- viewnotices.css means viewadminnotices.css -->
     <meta charset="UTF-8">
     <title>View Notices</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<c:url value='/resources/CSS/viewnotices.css' />" rel="stylesheet" type="text/css">
+    <link href="<c:url value='/resources/CSS/adminviewnotices.css' />" rel="stylesheet" type="text/css">
+     <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/pegiforviewnote.js' />"></script> 
 </head>
 <body>
     <div class="container mt-2">
+       <div class = navbar>
         <h2 class="mb-2">List of All Notices</h2>
-        
-        <table class="table table-striped table-bordered" id="noticeTable">
-            <thead class="thead-dark">
-                <tr>
-                    <th>NID</th>
-                    <th>NName</th>
-                    <th>NDESCRIPTION</th>
-                    <th>NDate</th>
-                    <th>LOCATION</th>
-                    <th>ORGANIZEFOR</th>
-                    <th>ACTIONS</th>
-                </tr>
-            </thead>
-            <tbody id="noticeTableBody">
-                <!-- JSTL to load all notices -->
-                <c:forEach var="n" items="${list}">
-                    <tr>
-                        <td>${n.getNid()}</td>
-                        <td>${n.getNname()}</td>
-                        <td>${n.getNdescription()}</td>
-                        <td>${n.getNdate()}</td>
-                        <td>${n.getLocation()}</td>
-                        <td>${n.getOrganizeFor()}</td>
-                        <td>
-                            <a href='updnotebyid?nid=${n.getNid()}' class="btn btn-primary btn-sm">UPDATE</a>
-                            <a href='delnotebyid?nid=${n.getNid()}' class="btn btn-danger btn-sm">DELETE</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+       </div>
+        <div id="noticeContainer" class="row">
+            <!-- Notice content dynamically added by pagination -->
+            <c:forEach var="n" items="${list}" varStatus="status">
+                <div class="col-md-6 notice-item">
+                    <div class="notice-block">
+                        <div class="notice-heading">
+                            ${n.getNname()}
+                        </div>
+                        <div class="notice-details">
+                            <strong>NID:</strong> ${n.getNid()} <br>
+                            <strong>NDate:</strong> ${n.getNdate()} <br>
+                            <strong>LOCATION:</strong> ${n.getLocation()} <br>
+                            <strong>ORGANIZEFOR:</strong> ${n.getOrganizeFor()}
+                            <br><br>
+                            <!-- Collapse for description -->
+                            <button class="btn-toggle" type="button" data-toggle="collapse" data-target="#desc-${n.getNid()}" aria-expanded="false" aria-controls="desc-${n.getNid()}">
+                                Description
+                            </button>
+                            <div class="collapse mt-2" id="desc-${n.getNid()}">
+                                <strong>Description:</strong> ${n.getNdescription()}
+                            </div>
+                            <div class="actions">
+                                <a href='updnotebyid?nid=${n.getNid()}' class="btn btn-primary btn-sm">UPDATE</a>
+                                <a href='delnotebyid?nid=${n.getNid()}' class="btn btn-danger btn-sm">DELETE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
 
         <!-- Pagination controls -->
         <div id="paginationControls" class="pagination justify-content-center">
@@ -59,60 +62,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- JavaScript for pagination without scroll -->
-    <script>
-        const rowsPerPage = 10;  // Number of rows per page
-        const tableBody = document.getElementById('noticeTableBody');
-        const rows = tableBody.getElementsByTagName('tr');
-        const totalRows = rows.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-        const paginationControls = document.getElementById('paginationControls');
-
-        function showPage(page) {
-            let start = (page - 1) * rowsPerPage;
-            let end = start + rowsPerPage;
-
-            // Hide all rows
-            for (let i = 0; i < totalRows; i++) {
-                rows[i].style.display = 'none';
-            }
-
-            // Show rows for the selected page
-            for (let i = start; i < end && i < totalRows; i++) {
-                rows[i].style.display = 'table-row';  // Use 'table-row' to avoid scroll
-            }
-
-            // Highlight the current page button
-            let currentButton = document.querySelector('.page-item.active');
-            if (currentButton) currentButton.classList.remove('active');
-            document.getElementById(`page-${page}`).classList.add('active');
-        }
-
-        function setupPagination() {
-            for (let i = 1; i <= totalPages; i++) {
-                let pageButton = document.createElement('li');
-                pageButton.classList.add('page-item');
-                pageButton.id = `page-${i}`;
-
-                let link = document.createElement('a');
-                link.classList.add('page-link');
-                link.href = '#';
-                link.innerText = i;
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    showPage(i);
-                });
-
-                pageButton.appendChild(link);
-                paginationControls.appendChild(pageButton);
-            }
-        }
-
-        // Initial setup
-        document.addEventListener('DOMContentLoaded', function () {
-            setupPagination();
-            showPage(1);  // Show the first page initially
-        });
-    </script>
 </body>
 </html>

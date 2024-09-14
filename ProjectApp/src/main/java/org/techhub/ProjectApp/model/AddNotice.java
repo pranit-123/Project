@@ -5,7 +5,7 @@ public class AddNotice {
 	@Override
 	public String toString() {
 		return "AddNotice [nid=" + nid + ", nname=" + nname + ", ndescription=" + ndescription + ", ndate=" + ndate
-				+ ", location=" + location + ", organizeFor=" + organizeFor + "]";
+				+ ", location=" + location + ", organizeFor=" +  organizeFor + "]";
 	}
 
 	private int nid;

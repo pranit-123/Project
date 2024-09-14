@@ -16,7 +16,7 @@
 <body>
 	<header class="header">
     <marquee direction="alternate" behavior="alternate" style="margin-right: 20px;">
-          <div class="logo" style="font-size: 24px; font-weight: bold; color: #333;">Welcome to Digital Notice Board </div>
+          <div class="logo" style="font-size: 24px; font-weight: bold; color: #333;">Digital Notice Board </div>
     </marquee>		
 		<nav class="navbar">
 			<ul>

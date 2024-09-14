@@ -37,6 +37,7 @@ public class RegisterRepoImpl implements RegisterRepo {
                 }
             });
         } catch (DataAccessException e) {
+        	System.out.println(e);
             return false;
         }
         return value > 0;

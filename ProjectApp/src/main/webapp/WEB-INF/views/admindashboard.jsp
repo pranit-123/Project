@@ -26,7 +26,7 @@
                 <li><a href="viewnote"><i class="fas fa-eye"></i> View All Notices</a></li>
                 <li><a href="searchnotes"><i class="fas fa-search"></i> Search Notice</a></li>
                 <li><a href="getusers"><i class="fas fa-users"></i> View All Users</a></li>
-                <li><a href="sendEmail"><i class="fas fa-envelope"></i> Send Email</a></li> 
+                <li><a href="sendEmails"><i class="fas fa-envelope"></i> Send Email</a></li> 
                 <li><a href="indpage"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
             </ul>
         </nav>

@@ -74,7 +74,7 @@ body {
 }
 /* Add the following code to your existing CSS file */
 
-.Login {
+/* .Login {
     background-color: #007bff;
     border: none;
     width: calc(100%-22);
@@ -85,9 +85,9 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    display: block; /* Make it a block element */
-    margin-top: 10px; /* Add some margin top */
-}
+    display: block; Make it a block element
+    margin-top: 10px; Add some margin top
+} */
 a {
   color: white;
   text-decoration: none;

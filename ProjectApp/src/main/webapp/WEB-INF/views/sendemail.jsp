@@ -1,25 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Email Page</title>
- <link href="<c:url value='/resources/CSS/sendemail.css' />" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Email with Spring MVC</title>
+<link href="<c:url value='/resources/CSS/sendemail.css' />" rel="stylesheet">
 </head>
 <body>
-	<form action="sendEmail" method="post">
-		<h2>Send Email</h2>
-		<label for="to">To:</label> <input type="email" id="to" name="to"
-			placeholder="e.g., email1@example.com, email2@example.com" required>
-
-		<label for="subject">Subject:</label> <input type="text" id="subject"
-			name="subject" required> <label for="body">Message:</label>
-		<textarea id="body" name="body" rows="5" cols="30" required></textarea>
-
-		<input type="submit" value="Send Email">
-	</form>
-	   
+    
+       
+        <form action="sendEmail" method="POST" >
+        <h1>Sending e-mail for New Released Notices</h1> 
+            <table border="0" width="100%" >
+                <tr>
+                    <td>To:</td>
+                    <td><input type="text" name="recipient" size="65" placeholder="Enter Email"/></td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td><input type="text" name="subject" size="65" placeholder="Enter Subject"/></td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><textarea cols="50" rows="10" name="message" placeholder="Enter Subject"></textarea></td>
+                </tr>               
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Send E-mail" />
+                    </td>
+                </tr>
+            </table>
+            ${m}
+        </form>
+   
 </body>
 </html>

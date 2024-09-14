@@ -14,6 +14,8 @@
     <link href="<c:url value='/resources/CSS/searchnotice.css' />" rel="stylesheet" type="text/css">
      <!-- Custom JS -->   
     <script src="<c:url value='/resources/JS/searchnotice.js' />"></script>
+    <%-- <jsp:include page="userviewnotices.jsp" /> adding one page to another --%> 
+    
     
 </head>
 <body>
@@ -26,7 +28,7 @@
       <div class="input-group-append">
         <select id="searchFilter" class="form-control">
           <option value="" disabled selected>Filter By</option>
-          <option value="0">Search by ID</option>
+          <!-- <option value="0">Search by ID</option> -->
           <option value="1">Search by Name</option>
           <option value="4">Search by Location</option>
         </select>

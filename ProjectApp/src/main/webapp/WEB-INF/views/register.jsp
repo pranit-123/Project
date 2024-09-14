@@ -38,7 +38,7 @@
       </select><br><br>
 
       <input type="submit" name="s" value="Sign Up"><br><br>
-      <div class="Login"><a href="log" >Login</a></div><br>
+    <!--   <div class="Login"><a href="log" >Login</a></div><br> -->
       
       <div class="message" style="color: red; text-align: center; margin-top: 5px;">
         ${msg}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Remove any unnecessary height settings */
 body, h2 {
 	margin: 0;
@@ -12,7 +13,22 @@ body {
 	padding: 0;
 	overflow-x: hidden; /* Prevent horizontal scroll */
 }
-
+.navbar {
+	position: sticky;
+	top: 0;
+	background-color: #0080ff;
+	color: white;
+    padding-left: 550px; 
+	margin-bottom: 20px;
+	z-index: 1; /* Add this property */
+	border-radius: 5px;
+	font-size: 24px;
+	
+	
+}
+.navbar h2 {
+	text-align: center;
+}
 /* Container style */
 .container {
 	max-width: 100%;
@@ -20,7 +36,7 @@ body {
 }
 
 /* Event List heading style */
-.container h2 {
+/* .container h2 {
 	background-color: #008080;
 	color: white;
 	padding: 10px 15px;
@@ -28,24 +44,44 @@ body {
 	text-align: center;
 	border-radius: 5px;
 	font-size: 24px;
-}
+} */
 
-/* Table style */
-.table {
-	width: 100%;
-	margin-bottom: 1rem;
-	color: #212529;
-	background-color: #fff;
+/* Notice block style */
+.notice-block {
+	background-color: #f0f8ff; /* Light background color */
+	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	animation: fadeIn 1s ease-in;
+	padding: 15px;
+	margin-bottom: 20px;
 }
 
-/* Table header style */
-.thead-dark th {
-	background-color: #343a40;
-	color: white;
+.notice-heading {
+	color: #007bff; /* Heading color */
+	font-weight: bold;
+	font-size: 1.5em;
 }
 
+.notice-details {
+	color: #333; /* Text color */
+	font-size: 1em;
+}
+
+.actions {
+	margin-top: 10px;
+}
+
+.actions a {
+	margin-right: 10px;
+}
+.btn-toggle {
+	border-radius: 5px;
+	border:none;
+	background-color:gray;
+	color: #fff;
+	padding-left: 40px;
+	padding-right: 40px;
+	
+}
 /* Button style */
 .btn-primary, .btn-danger {
 	font-size: 14px;
@@ -67,39 +103,6 @@ body {
 		font-size: 20px;
 		padding: 10px 15px;
 	}
-}
-
-/* Custom styling for notice blocks */
-.notice-block {
-	background-color: #f0f8ff; /* Light background color */
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	padding: 15px;
-	margin-bottom: 20px;
-}
-
-.notice-heading {
-	color: #007bff; /* Heading color */
-	font-weight: bold;
-	font-size: 1.5em;
-}
-
-.notice-details {
-	color: #333; /* Text color */
-	font-size: 1em;
-}
-
-.btn-toggle {
-	color: #fff;
-	background-color: #28a745; /* Green button color */
-	border: none;
-	padding: 5px 10px;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-.btn-toggle:hover {
-	background-color: #218838;
 }
 
 /* Pagination styles */

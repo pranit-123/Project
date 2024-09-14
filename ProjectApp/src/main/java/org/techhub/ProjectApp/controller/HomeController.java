@@ -57,6 +57,7 @@ public class HomeController {
       boolean isValid = regService.isValidateUser(model);
       String email = model.getEmail();
       String pass = model.getPassword();
+      
       if(email.equals("admin@123456") && pass.equals("admin@123456")) 
        {
     	  session.setAttribute("role","all");

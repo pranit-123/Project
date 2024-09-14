@@ -22,6 +22,7 @@
 				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 			</param-value>
 		</init-param>
+		
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>org.techhub.ProjectApp</param-value>

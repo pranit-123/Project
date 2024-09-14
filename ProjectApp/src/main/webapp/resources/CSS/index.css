@@ -38,6 +38,7 @@ html,body {
 	font-size: 1rem;
 	font-weight: bold;
 	border-radius: 25px;
+	background-color: #c0c0c0;
 }
 
 .header .logo {
