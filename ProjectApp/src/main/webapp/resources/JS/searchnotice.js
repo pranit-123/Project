@@ -1,4 +1,4 @@
- function searchNotices() {
+function searchNotices() {
             var input, filter, table, tr, td, i, txtValue, selectedFilter, isRecordFound = false;
             input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();

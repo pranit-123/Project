@@ -1,25 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %> 
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
-<html>                                 <!-- viewnotices.jsp means viewadminnotices.css  -->
-<head>                                 <!-- viewnotices.css means viewadminnotices.css -->
+<html>
+<head>
     <meta charset="UTF-8">
     <title>View Notices</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<c:url value='/resources/CSS/adminviewnotices.css' />" rel="stylesheet" type="text/css">
-     <!-- Custom JS -->
-    <script src="<c:url value='/resources/JS/pegiforviewnote.js' />"></script> 
+    <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/pegiforviewnote.js' />"></script>
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/popupfordelup.js' />"></script>
+    
 </head>
 <body>
     <div class="container mt-2">
-       <div class = navbar>
-        <h2 class="mb-2">List of All Notices</h2>
-       </div>
+        <div class="navbar">
+            <h2 class="mb-2">List of All Notices</h2>
+        </div>
         <div id="noticeContainer" class="row">
             
             <!-- Notice content dynamically added by pagination -->
@@ -30,7 +37,7 @@
                             ${n.getNname()}
                         </div>
                         <div class="notice-details">
-                            <strong>NID:</strong> ${n.getNid()} <br>
+                            <%-- <strong>NID:</strong> ${n.getNid()} <br> --%>
                             <strong>NDate:</strong> ${n.getNdate()} <br>
                             <strong>LOCATION:</strong> ${n.getLocation()} <br>
                             <strong>ORGANIZEFOR:</strong> ${n.getOrganizeFor()}
@@ -43,8 +50,11 @@
                                 <strong>Description:</strong> ${n.getNdescription()}
                             </div>
                             <div class="actions">
-                                <a href='updnotebyid?nid=${n.getNid()}' class="btn btn-primary btn-sm">UPDATE</a>
-                                <a href='delnotebyid?nid=${n.getNid()}' class="btn btn-danger btn-sm">DELETE</a>
+                                <!-- Update button with SweetAlert confirmation -->
+                                <button onclick="confirmUpdate('${n.getNid()}')" class="btn btn-primary btn-sm">UPDATE</button>
+                                
+                                <!-- Delete button with SweetAlert confirmation -->
+                                <button onclick="confirmDelete('${n.getNid()}')" class="btn btn-danger btn-sm">DELETE</button>
                             </div>
                         </div>
                     </div>
@@ -63,5 +73,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+ 
 </body>
 </html>

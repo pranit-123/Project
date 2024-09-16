@@ -259,4 +259,48 @@ public class RegisterRepoImpl implements RegisterRepo {
             }
         });
 	}
+
+	@Override
+	public boolean DeleteUserByEmail(String email) {
+	    String sql = "delete from Register where email = ?";
+	    int value = template.update(sql, email);  // Use parameterized query
+	    return value != 0;
+	}
+
+	@Override
+	public void updateUserByEmail(Register register) {
+		 String sql = "UPDATE Register SET name = ?, password = ?, contact = ?, role = ? WHERE email = ?";
+		 int value = template.update(sql, new PreparedStatementSetter() {
+
+		        @Override
+		        public void setValues(PreparedStatement ps) throws SQLException {
+		            ps.setString(1, register.getName().trim());
+		            ps.setString(2, register.getPassword().trim());
+		            ps.setString(3, register.getContact().trim());
+		            ps.setString(4, register.getRole().trim());
+		            ps.setString(5, register.getEmail().trim());
+		        }
+		    });
+		    if (value != 0)
+		        System.out.println("User data updated successfully.");
+		    else
+		        System.out.println("No data was updated. Please check the email.");
+		}
+
+	@Override
+	public List<Register> getDataByEmail(String email) {
+	    return template.query("select * from Register where email = ?", new Object[]{email}, new RowMapper<Register>() {
+	        @Override
+	        public Register mapRow(ResultSet rs, int rowNum) throws SQLException {
+	            Register r = new Register();
+	            r.setRid(rs.getString(1));
+	            r.setName(rs.getString(2));
+	            r.setEmail(rs.getString(3));
+	            r.setContact(rs.getString(4));
+	            r.setPassword(rs.getString(5));
+	            r.setRole(rs.getString(6));
+	            return r;
+	        }
+	    });
+	}
 }

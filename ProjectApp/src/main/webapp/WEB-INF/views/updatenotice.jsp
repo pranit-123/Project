@@ -56,9 +56,9 @@
                 <label for="organizerFor">Organize For:</label>
                 <select id="organizerFor" name="organizeFor" required="required" value ="${n.getOrganizeFor()}"class="form-control">
                     <option value="" disabled selected>Select Category</option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="all">All</option>
+                    <option value="student">student</option>
+                    <option value="teacher">teacher</option>
+                    <option value="all">all</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Update Notice</button>

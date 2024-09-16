@@ -33,5 +33,9 @@ public interface RegisterRepo {
 	
 	public List<AddNotice> searchAllNoticesRoleWise(String role);
 
+	public boolean DeleteUserByEmail(String email);
 	
+	void updateUserByEmail(Register register);
+	
+	public List<Register> getDataByEmail(String email);
 }

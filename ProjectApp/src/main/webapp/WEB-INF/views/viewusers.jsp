@@ -10,8 +10,16 @@
     <title>View Users</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<c:url value='/resources/CSS/viewusers.css' />" rel="stylesheet" type="text/css">
+<%--     <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/peginationforviewusers.js' />"></script> --%>
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="<c:url value='/resources/JS/popupforuserdel.js' />"></script>
     
 </head>
 <body>
@@ -21,25 +29,30 @@
         <table class="table table-striped table-bordered" id="userTable">
             <thead class="thead-dark">
                 <tr>
-                    <th>Rid</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                   <!--  <th>Password</th> -->
-                    <th>Contact</th>
-                    <th>Role</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>CONTACT</th>
+                    <th>ROLE</th>
+                    <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody id="userTableBody">
                 <!-- JSTL to load all users -->
                 <c:forEach var="n" items="${list}">
                     <tr>
-                        <td>${n.getRid()}</td>
                         <td>${n.getName()}</td>
                         <td>${n.getEmail()}</td>
-                        <%-- <td>${n.getPassword()}</td> --%>
                         <td>${n.getContact()}</td>
                         <td>${n.getRole()}</td>
-                    </tr>
+                        <td>
+                            <!-- Update button with SweetAlert confirmation -->
+                            <button onclick="confirmUpdate('${n.getEmail()}')" class="btn btn-primary btn-sm">UPDATE</button>
+
+                            <!-- Delete button with SweetAlert confirmation -->
+                            <button onclick="confirmDelete('${n.getEmail()}')" class="btn btn-danger btn-sm">DELETE</button>
+                            
+                        </td>
+                    </tr>  
                 </c:forEach>
             </tbody>
         </table>
@@ -54,8 +67,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript for pagination without scroll -->
+   
+      <!-- JavaScript for pagination without scroll -->
     <script>
         const rowsPerPage = 10;  // Number of rows per page
         const tableBody = document.getElementById('userTableBody');
@@ -110,5 +123,6 @@
             showPage(1);  // Show the first page initially
         });
     </script>
+    
 </body>
 </html>

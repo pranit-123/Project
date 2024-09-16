@@ -34,7 +34,8 @@ public class AddNoticeController {
 			notice.setOrganizeFor(organizeFor);
 			boolean add = regService.isAddNotice(notice);
             map.put("msg2", add ? "Notice Added Successfully" : "Notice Not Added");    
-		  return "AddNotices";
+		  
+            return "admindashboard";
 	}
 
 	@RequestMapping("/viewnote")
@@ -133,6 +134,34 @@ public class AddNoticeController {
 		m.put("list", list);
 		
 		return "viewusers";
+	 }
+	 
+	 @RequestMapping("/deluserbyemail")
+		public String DeleteUser(@RequestParam("email") String email, Map<String, List<Register>> map) {
+			boolean b = regService.DeleteUserByEmail(email);
+			
+			if (b) {
+				List<Register> list = regService.getAllUsers();
+				
+				map.put("list", list);
+			}
+			return "viewusers";	
+		}
+	
+	 @RequestMapping("/upduserbyemail")
+		public String updateUserPage(@RequestParam("email") String email, Map<String, List<Register>> m) {
+			
+			List<Register> list = regService.getDataByEmail(email);
+			m.put("list", list);  //updateUserByEmail(Register register);
+			return "updateuserpage";
+		}          
+	 
+	 @RequestMapping(value = "/updateuser", method = RequestMethod.POST)
+	 public String updateUser(Register register, Map<String, Object> map) {
+	     regService.updateUserByEmail(register);
+	     List<Register> list = regService.getAllUsers(); // Assuming you have a method to retrieve all users
+	     map.put("list", list);
+	     return "viewusers";  // Assuming viewusers.jsp is the page to show the updated list of users
 	 }
 
 }

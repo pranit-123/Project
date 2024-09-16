@@ -79,8 +79,8 @@ body {
 	border:none;
 	background-color:gray;
 	color: #fff;
-	padding-left: 40px;
-	padding-right: 40px;
+	text-align:center;
+	padding: 7px 18px;
 	
 }
 /* Button style */

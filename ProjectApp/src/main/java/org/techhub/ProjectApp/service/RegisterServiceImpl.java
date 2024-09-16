@@ -44,7 +44,7 @@ public class RegisterServiceImpl implements RegisterService {
 		return regRepo.DeleteEmployeeByid(id);
 	
 	}
-	
+	@Override
 	public void updateNoticeByid(AddNotice notice) {
 		 regRepo.updateNoticeByid(notice);
 	}
@@ -81,5 +81,22 @@ public class RegisterServiceImpl implements RegisterService {
 	public List<AddNotice> searchAllNoticesRoleWise(String role) {
 
 		return regRepo.searchAllNoticesRoleWise(role);
+	}
+
+	@Override
+	public boolean DeleteUserByEmail(String email) {
+	
+		return regRepo.DeleteUserByEmail(email);
+	}
+
+	@Override
+	public void updateUserByEmail(Register register) {
+		 regRepo.updateUserByEmail(register);
+	}
+
+	@Override
+	public List<Register> getDataByEmail(String email) {
+		// TODO Auto-generated method stub
+		return regRepo.getDataByEmail(email);
 	}
 }

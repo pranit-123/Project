@@ -46,16 +46,16 @@
                 <label for="organizerFor">Organize For:</label> 
                 <select id="organizerFor" name="organizeFor" required="required">
                     <option value="" disabled selected>Select Category</option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="all">All</option>
+                    <option value="student">student</option>
+                    <option value="teacher">teacher</option>
+                    <option value="all">all</option>
                 </select><br>
 
                 <!-- Add a class to the submit button for consistent styling -->
                 <input type="submit" class="submit-button" name="s" value="Add Notice" />
             </form>
-            <div class="message">${msg2}</div><br>
-                <a href="dashb" class="dashboard-link">Go Dashboard</a>
+            <div class="message">${msg2}</div>
+               <!--  <a href="dashb" class="dashboard-link">Go Dashboard</a> -->
         </div>
     </div>
 
