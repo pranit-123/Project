@@ -27,7 +27,7 @@
 
 				<div class="menu-bar">
 					<select onchange="location = this.value;" class="start">
-						<option disabled selected ">Start with</option>
+						<option disabled selected ">Get-Started</option>
 						<option value="reg">Sign-Up</option>
 						<option value="log">Login</option>
 						<!-- <option value="log">Admin Login</option> -->

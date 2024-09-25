@@ -35,12 +35,9 @@
                 </div>
                 <div class="form-group">
                     <label for="role">Role:</label>
-                    <select id="role" name="role" class="form-control" required>
-                        <option value="" disabled selected>Select Role</option>
-                        <option value="student" ${u.getRole() == 'student' ? 'selected' : ''}>student</option>
-                        <option value="teacher" ${u.getRole() == 'teacher' ? 'selected' : ''}>teacher</option>
-                        
-                    </select>
+                    <!-- Display the role as plain text, not allowing the user to change it -->
+                    <input type="hidden" name="role" value="${u.getRole()}">
+                    <p class="form-control-plaintext">${u.getRole()}</p>
                 </div>
                 <button type="submit" class="btn btn-primary">Update User</button>
             </c:forEach>

@@ -1,10 +1,7 @@
 package org.techhub.ProjectApp.controller;
 
 import java.util.Map;
-import java.util.logging.Logger;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +12,9 @@ import org.techhub.ProjectApp.service.RegisterService;
 @Controller
 public class HomeController {
 
-
     @Autowired
     RegisterService regService;
-    
-
+  
     @RequestMapping(value = "/")
     public String test() {
         return "index";
@@ -58,7 +53,7 @@ public class HomeController {
       String email = model.getEmail();
       String pass = model.getPassword();
       
-      if(email.equals("admin@123456") && pass.equals("admin@123456")) 
+      if(email.equals("Pranit@gmail.com") && pass.equals("Pranit@123456")) 
        {
     	  session.setAttribute("role","all");
       	   return "admindashboard";
@@ -91,15 +86,13 @@ public class HomeController {
     	return "contact";
     }
     
-    @RequestMapping("/logout")
-    public String LogOutSession(HttpSession session, Map map , Login login) {
-    	if(session.getAttribute("user") != null) {
-    		session.removeAttribute("user");
-    	}
-		return "index"; 	
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session, Map<String, Object> map) {
+        session.invalidate();
+        map.put("msg1", "You have been successfully logged out.");
+        
+        return "login";
     }
-    
-    
-    
+   
 }
 

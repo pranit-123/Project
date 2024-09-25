@@ -16,14 +16,14 @@
 				name="email" placeholder="Enter Email" required="required"><br>
 			<br> <label for="password">Password:</label> <input
 				type="password" id="password" name="password"
-				placeholder="Enter Password" required="required"><br>
-			<br> <input type="submit" name="Login" value="Login" /><br><br>
-			     <a href="reg" class="register">Register</a>
+				placeholder="Enter Password" required="required"><br> <br>
+			<input type="submit" name="Login" value="Login" /><br>
+			<br> <a href="reg" class="register">Register</a>
 			<p class="message"
 				style="color: red; text-align: center; margin-top: 20px;">
 				<c:if test="${not empty msg1}">
-                ${msg1}
-            </c:if>
+                 ${msg1}
+                </c:if>
 			</p>
 		</form>
 

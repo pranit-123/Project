@@ -1,9 +1,7 @@
 package org.techhub.ProjectApp.controller;
 
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -19,46 +17,47 @@ public class SendEmailController {
 
     @RequestMapping("/sendEmails")
     public String SendEmail() {
-    	return "sendemail";   //jsp page 
+        return "sendemail";   //jsp page 
     }
+
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
-    public String doSendEmail(HttpServletRequest request, Map map) {
-        // takes input from e-mail form
-        String recipientAddress = request.getParameter("recipient");
+    public String doSendEmail(HttpServletRequest request, Map<String, Object> map) {
+        // Get email form input
+        String recipientAddresses = request.getParameter("recipient"); // Expecting comma-separated emails
         String subject = request.getParameter("subject");
         String message = request.getParameter("message");
 
         // Debugging info
-        System.out.println("Recipient Address: " + recipientAddress);
+        System.out.println("Recipient Addresses: " + recipientAddresses);
         System.out.println("Subject: " + subject);
         System.out.println("Message: " + message);
 
-        System.out.println("============"+recipientAddress+" "+subject+" "+message+"===============");
-        
         // Check for null or empty values
-        if (recipientAddress == null || recipientAddress.isEmpty() ||
+        if (recipientAddresses == null || recipientAddresses.isEmpty() ||
             subject == null || subject.isEmpty() ||
             message == null || message.isEmpty()) {
-            return "Error";
+            return "Error"; // Error page if input is missing
         }
 
-        // Create and send the email
+        // Split recipient emails by commas
+        String[] recipientList = recipientAddresses.split("\\s*,\\s*"); // Split by commas and trim spaces
+
+        // Create and send the email to multiple recipients
         SimpleMailMessage email = new SimpleMailMessage();
-        email.setTo(recipientAddress);
+        email.setTo(recipientList);  // Pass array of email addresses
         email.setSubject(subject);
         email.setText(message);
-        
+
         try {
-            mailSender.send(email);
-            map.put("m", "Email send Suceessfully...! ");
-            
+            mailSender.send(email);  // Send email
+            map.put("m", "Email sent successfully to all recipients!");
         } catch (Exception e) {
-            e.printStackTrace(); // Print stack trace for debugging
+            e.printStackTrace(); // Debugging info
             request.setAttribute("exception", e);
             return "Error";
         }
 
         // Forward to the view named "Result"
-        return " Result";
+        return "admindashboard";
     }
 }

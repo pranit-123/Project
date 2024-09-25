@@ -8,7 +8,7 @@ public class Register {
 	private String password;
 	private String contact;
 	private String role;
-
+	
 	public String getRid() {
 		return rid;
 	}
@@ -54,12 +54,6 @@ public class Register {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	@Override
-	public String toString() {
-		return "Register [name=" + name + ", email=" + email + ", password=" + password + ", contact=" + contact
-				+ ", role=" + role + "]";
 	}
 	
 }

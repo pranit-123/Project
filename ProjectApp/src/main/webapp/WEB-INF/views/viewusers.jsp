@@ -14,13 +14,12 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<c:url value='/resources/CSS/viewusers.css' />" rel="stylesheet" type="text/css">
-<%--     <!-- Custom JS -->
-    <script src="<c:url value='/resources/JS/peginationforviewusers.js' />"></script> --%>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Custom JS -->
     <script src="<c:url value='/resources/JS/popupforuserdel.js' />"></script>
-    
 </head>
 <body>
     <div class="container mt-2">
@@ -45,12 +44,15 @@
                         <td>${n.getContact()}</td>
                         <td>${n.getRole()}</td>
                         <td>
-                            <!-- Update button with SweetAlert confirmation -->
-                            <button onclick="confirmUpdate('${n.getEmail()}')" class="btn btn-primary btn-sm">UPDATE</button>
+                            <!-- Update button with SweetAlert confirmation and edit icon -->
+                            <button onclick="confirmUpdate('${n.getEmail()}')" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i> UPDATE
+                            </button>
 
-                            <!-- Delete button with SweetAlert confirmation -->
-                            <button onclick="confirmDelete('${n.getEmail()}')" class="btn btn-danger btn-sm">DELETE</button>
-                            
+                            <!-- Delete button with SweetAlert confirmation and trash icon -->
+                            <button onclick="confirmDelete('${n.getEmail()}')" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> DELETE
+                            </button>
                         </td>
                     </tr>  
                 </c:forEach>
@@ -68,7 +70,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    
-      <!-- JavaScript for pagination without scroll -->
+    <!-- JavaScript for pagination without scroll -->
     <script>
         const rowsPerPage = 10;  // Number of rows per page
         const tableBody = document.getElementById('userTableBody');
@@ -123,6 +125,5 @@
             showPage(1);  // Show the first page initially
         });
     </script>
-    
 </body>
 </html>

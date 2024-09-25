@@ -30,7 +30,9 @@
                 <p><strong>Role : &nbsp &nbsp &nbsp &nbsp &nbsp </strong>${role}</p>
             </div>
             <div class="profile-actions">
-                <button class="btn btn-primary">Edit Profile</button>
+                 <a href="upduserbyemail?email=${email}">
+                   <button class="btn btn-primary">Edit Profile</button>
+                </a>
                 <a href="indpage">
                    <button class="btn bg-danger">Log Out</button>
                 </a>

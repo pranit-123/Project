@@ -99,4 +99,5 @@ public class RegisterServiceImpl implements RegisterService {
 		// TODO Auto-generated method stub
 		return regRepo.getDataByEmail(email);
 	}
+	
 }

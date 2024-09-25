@@ -10,14 +10,22 @@
     <title>View Notices</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <!-- SweetAlert CSS -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+    
     <!-- Custom CSS -->
     <link href="<c:url value='/resources/CSS/adminviewnotices.css' />" rel="stylesheet" type="text/css">
+    
     <!-- Custom JS -->
     <script src="<c:url value='/resources/JS/pegiforviewnote.js' />"></script>
+    
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- Custom JS -->
     <script src="<c:url value='/resources/JS/popupfordelup.js' />"></script>
     
@@ -50,11 +58,15 @@
                                 <strong>Description:</strong> ${n.getNdescription()}
                             </div>
                             <div class="actions">
-                                <!-- Update button with SweetAlert confirmation -->
-                                <button onclick="confirmUpdate('${n.getNid()}')" class="btn btn-primary btn-sm">UPDATE</button>
+                                <!-- Update button with SweetAlert confirmation and icon -->
+                                <button onclick="confirmUpdate('${n.getNid()}')" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil-alt"></i> UPDATE
+                                </button>
                                 
-                                <!-- Delete button with SweetAlert confirmation -->
-                                <button onclick="confirmDelete('${n.getNid()}')" class="btn btn-danger btn-sm">DELETE</button>
+                                <!-- Delete button with SweetAlert confirmation and icon -->
+                                <button onclick="confirmDelete('${n.getNid()}')" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i> DELETE
+                                </button>
                             </div>
                         </div>
                     </div>

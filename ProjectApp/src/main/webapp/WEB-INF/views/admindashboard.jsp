@@ -37,7 +37,7 @@
         <img src="<c:url value='./resources/images/admindash.jpg' />" alt="Dashboard Image">
         <!-- Text Overlay on Top of the Image -->
         <div class="text-overlay">
-            <h5>Welcome to the Dashboard, Admin!</h5>
+            <h5>Welcome to the Dashboard, Pranit!</h5>
             <p>Your presence makes a difference! Ready to keep everyone informed?<br>
                Manage, update, and create notices with ease. The platform is yours!
             </p>

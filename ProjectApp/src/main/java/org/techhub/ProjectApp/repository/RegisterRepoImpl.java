@@ -87,7 +87,7 @@ public class RegisterRepoImpl implements RegisterRepo {
 
     @Override
     public List<AddNotice> getAllNotices() {
-        return template.query("select * from notices",new RowMapper<AddNotice>() {
+        return template.query("select * from notices ORDER BY ndate DESC",new RowMapper<AddNotice>() {
 
             @Override
             public AddNotice mapRow(ResultSet rs, int rowNum) throws SQLException {

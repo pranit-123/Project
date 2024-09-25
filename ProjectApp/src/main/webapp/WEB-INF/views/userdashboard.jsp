@@ -23,7 +23,9 @@
                 <li><a href="userviewnote"><i class="fas fa-eye"></i> View All Notices</a></li>
                 <li><a href="searchnote"><i class="fas fa-search"></i> Search Notice</a></li>
                 <li><a href="<c:url value='/viewprof' />"><i class="fas fa-user"></i> View Profile</a></li>
-                <li><a href="indpage"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                <!-- <li><a href="indpage"><i class="fas fa-sign-out-alt"></i> Log out</a></li> -->
+                <li><a href="logout"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                
             </ul>
         </nav>
     </header>
